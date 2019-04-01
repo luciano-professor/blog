@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Chamando o controllador
+Route::get('/sobre', 'PaginaBasicaController@sobre');
+Route::get('/contato', 'PaginaBasicaController@contato');
+
