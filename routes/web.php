@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostController@posts');
 
 //Chamando o controllador
 Route::get('/sobre', 'PaginaBasicaController@sobre');
