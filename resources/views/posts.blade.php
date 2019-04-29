@@ -14,12 +14,18 @@
         <th>Data</th>
         <th>Opções</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Teste</td>
-        <td>Lorem ipsum dolor sit amet consectetur.</td>
-        <td>19/09/2001</td>
-        <td>Editar Excluir</td>
-    </tr>
+    @forelse ($posts as $post)
+        <tr>
+            <td> {{$post->id}} </td>
+            <td> {{$post->titulo}} </td>
+            <td> {{$post->texto}} </td>
+            <td> {{$post->created_at}} </td>
+            <td>Editar Excluir</td>
+        </tr>
+    @empty
+        <tr>
+            <td colspan="5">Sem posts cadastrados.</td>
+        </tr>
+    @endforelse
 </table>
 @endsection
