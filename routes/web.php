@@ -17,3 +17,6 @@ Route::get('/', 'PostController@posts');
 Route::get('/sobre', 'PaginaBasicaController@sobre');
 Route::get('/contato', 'PaginaBasicaController@contato');
 
+//Rotas para parte de POSTS
+Route::get('/posts/form-adicionar', 'PostController@formAdicionar');
+Route::post('/posts/adicionar', 'PostController@adicionar');
