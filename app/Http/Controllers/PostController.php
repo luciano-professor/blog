@@ -7,14 +7,20 @@ use Illuminate\Http\Request;
 //importar a classe simples de acesso ao BD
 use Illuminate\Support\Facades\DB;
 
+//importar o modelo post
+use App\Post;
+
 class PostController extends Controller
 {
     //
 
+    /**
+     * Retorna todos os posts cadastrados
+     */
     public function posts()
     {
 
-        $dados = DB::select('SELECT * FROM posts');
+        $dados = Post::all();
 
         return view('posts')->with('posts', $dados);
     }
@@ -37,7 +43,12 @@ class PostController extends Controller
         $titulo = $request->input('titulo');
         $texto = $request->input('texto');
 
-        DB::insert('INSERT INTO posts (titulo, texto) VALUES (?, ?)', [$titulo, $texto]);
+        //DB::insert('INSERT INTO posts (titulo, texto) VALUES (?, ?)', [$titulo, $texto]);
+        $post = new Post();
+        $post->titulo = $titulo;
+        $post->texto = $texto;
+
+        $post->save();
 
         return redirect()->action('PostController@posts');
 
