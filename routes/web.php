@@ -20,3 +20,6 @@ Route::get('/contato', 'PaginaBasicaController@contato');
 //Rotas para parte de POSTS
 Route::get('/posts/form-adicionar', 'PostController@formAdicionar');
 Route::post('/posts/adicionar', 'PostController@adicionar');
+Route::get('/posts/excluir/{id}', 'PostController@excluir');
+Route::get('/posts/editar/{id}', 'PostController@form_editar');
+Route::post('/posts/editar', 'PostController@editar');

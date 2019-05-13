@@ -24,7 +24,14 @@
             <td> {{$post->titulo}} </td>
             <td> {{$post->texto}} </td>
             <td> {{$post->created_at}} </td>
-            <td>Editar Excluir</td>
+            <td>
+                <a class="btn btn-outline-secondary" href="{{url('/posts/editar/' . $post->id)}}">
+                    Editar
+                </a>
+                <a class="btn btn-outline-secondary" href="{{url('/posts/excluir/' . $post->id)}}">
+                    Excluir
+                </a>
+            </td>
         </tr>
     @empty
         <tr>
