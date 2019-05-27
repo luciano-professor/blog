@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 //importar o modelo post
 use App\Post;
 
+//Importando a classe de Validação
+use App\Http\Requests\PostRequest;
+
 class PostController extends Controller
 {
     //
@@ -37,8 +40,14 @@ class PostController extends Controller
     /**
      * Método que vai adicionar um post no BD
      */
-    public function adicionar(Request $request)
+    public function adicionar(PostRequest $request)
     {
+
+        //Validacao
+        /*$request->validate([
+            'titulo' => 'required|min:3|max:255',
+            'texto' => 'required',
+        ]);*/
 
         //$post = new Post();
         //$post->titulo = $request->titulo;
@@ -72,8 +81,16 @@ class PostController extends Controller
 
     }
 
-    public function editar(Request $request)
+    public function editar(PostRequest $request)
     {
+
+        //Validacao
+        /*$request->validate([
+            'titulo' => 'required|min:3|max:255',
+            'texto' => 'required',
+        ]);*/
+
+
         //$post = Post::find($request->id);
         //$post->titulo = $request->titulo;
         //$post->texto = $request->texto;

@@ -10,13 +10,21 @@
 
     <div class="form-group">
         <label for="titulo">Titulo</label>
-        <input id="titulo" class="form-control" name="titulo" type="text">
+        <input value="{{old('titulo')}}" id="titulo" class="form-control" name="titulo" type="text">
+
+        @error('titulo')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
     </div>
 
     <div class="form-group">
         <label for="texto">Texto</label>
-        <textarea id="texto" class="form-control" rows="3" name="texto">
-        </textarea>
+        <textarea id="texto" class="form-control" rows="3" name="texto">{{old('texto')}}</textarea>
+
+        @error('texto')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <button class="btn btn-primary" type="submit">Enviar</button>
