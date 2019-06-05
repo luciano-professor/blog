@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriarTabelaPosts extends Migration
+class CreateCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CriarTabelaPosts extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo', 255);
-            $table->text('texto');
-            //vai criar os campos timestamp created_at e updated_at
-            $table->timestamps();
+            $table->string('nome', 255);
         });
     }
 
@@ -29,6 +26,6 @@ class CriarTabelaPosts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('categorias');
     }
 }

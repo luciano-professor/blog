@@ -24,4 +24,12 @@ class Post extends Model
     }
 
 
+    //Relacionamento
+    public function categoria()
+    {
+        # code...
+        return $this->belongsTo('App\Categoria');
+    }
+
+
 }
