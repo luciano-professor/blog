@@ -3,6 +3,7 @@
 @section('conteudo-principal')
 
 <h2>Adicionar Post</h2>
+<hr />
 
 <form method="post" action="{{url('/posts/adicionar')}}">
 

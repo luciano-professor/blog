@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class CategoriaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => 'required|min:3|max:255',
-            'texto' => 'required',
+            'nome' => 'required|min:3|max:255',
         ];
     }
 
@@ -43,17 +42,5 @@ class PostRequest extends FormRequest
         ];
     }
 
-    /**
-     * Customizando o nome dos campos, caso queira colocar acento e escrever de
-     * outra forma
-     *
-     * @return void
-     */
-    public function attributes()
-    {
-        return [
-            'titulo' => 'título',
-        ];
-    }
 
 }
