@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 //importar o modelo post
 use App\Post;
 
+//importar o modelo categoria
+use App\Categoria;
+
 //Importando a classe de Validação
 use App\Http\Requests\PostRequest;
 
@@ -34,7 +37,9 @@ class PostController extends Controller
      */
     public function formAdicionar()
     {
-        return view('form-adicionar');
+        $categorias = Categoria::all();
+
+        return view('form-adicionar')->with('categorias', $categorias);
     }
 
     /**
@@ -66,6 +71,8 @@ class PostController extends Controller
         //Excluir via eloquent quando tem o id
         Post::destroy($id);
 
+
+
         return redirect()->action('PostController@posts');
     }
 
@@ -76,8 +83,11 @@ class PostController extends Controller
         //Buscar o post no BD pelo id
         $post = Post::find($id);
 
+        $categorias = Categoria::all();
+
         //chamando a view e passando o dado do post
-        return view('form-editar')->with('post', $post);
+        return view('form-editar')->with('post', $post)
+        ->with('categorias', $categorias);
 
     }
 

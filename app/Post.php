@@ -12,7 +12,7 @@ class Post extends Model
     /**
      * Quais campos pode preencher em atribuição em massa
      */
-    protected $fillable = ['titulo', 'texto'];
+    protected $fillable = ['titulo', 'texto', 'categoria_id'];
 
     /**
      * get Created_at para formatar na data brasileira

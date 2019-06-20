@@ -26,6 +26,7 @@ class PostRequest extends FormRequest
         return [
             'titulo' => 'required|min:3|max:255',
             'texto' => 'required',
+            'categoria_id' => 'required',
         ];
     }
 
@@ -53,6 +54,7 @@ class PostRequest extends FormRequest
     {
         return [
             'titulo' => 'título',
+            'categoria_id' => 'categoria'
         ];
     }
 

@@ -14,6 +14,7 @@
     <tr>
         <th>Id</th>
         <th>Título</th>
+        <th>Categoria</th>
         <th>Texto</th>
         <th>Data</th>
         <th>Opções</th>
@@ -22,6 +23,7 @@
         <tr>
             <td> {{$post->id}} </td>
             <td> {{$post->titulo}} </td>
+            <td> {{$post->categoria->nome}} </td>
             <td> {{$post->texto}} </td>
             <td> {{$post->created_at}} </td>
             <td>

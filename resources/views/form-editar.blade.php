@@ -22,6 +22,29 @@
     </div>
 
     <div class="form-group">
+        <label for="categoria">Categoria</label>
+        <select id="categoria" class="form-control" name="categoria_id">
+            <option value="">Selecione</option>
+
+            @foreach ($categorias as $categoria)
+
+                <option value="{{$categoria->id}}"
+                    {{ ($categoria->id == $post->categoria_id) ? 'selected' : '' }}
+                    >
+                    {{$categoria->nome}}
+                </option>
+
+            @endforeach
+
+        </select>
+
+        @error('categoria_id')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
+    </div>
+
+    <div class="form-group">
         <label for="texto">Texto</label>
         <textarea id="texto" class="form-control" rows="3"
         name="texto">{{$post->texto}}</textarea>
